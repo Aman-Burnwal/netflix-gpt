@@ -20,7 +20,7 @@ const Login = () => {
 
         e.preventDefault();
         
-        console.log("submited")
+        // console.log("submited")
         if (!isSignedIn) seterrorMessage(check_Validata_Email_Password(email.current.value, password.current.value, fullName.current.value, email.current.value))
 
         else seterrorMessage(check_Validata_Email_Password(email.current.value, password.current.value));
@@ -40,10 +40,10 @@ const Login = () => {
 
                     seterrorMessage(errorCode, errorMessage);
                 });
-            console.log("1")
+            // console.log("1")
         }
         else {
-            console.log("2")	
+            // console.log("2")	
             signInWithEmailAndPassword(auth, email.current.value, password.current.value)
                 .then((userCredential) => {
                     // Signed in 
