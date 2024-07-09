@@ -6,7 +6,7 @@ import { check_Validata_Email_Password } from "../utils/validate";
 import { createUserWithEmailAndPassword,  signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 import {auth} from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
@@ -14,7 +14,7 @@ import { addUser } from "../utils/userSlice";
 
 const Login = () => {
 
-    const navigate = useNavigate();
+   
     const dispatch = useDispatch();
 
     const [isSignedIn, setSignIN] = useState(true);
@@ -49,11 +49,9 @@ const Login = () => {
                        
                         dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }))
                        
-                        // console.log(user);
-                        navigate("/browse")
+                    
                     }).catch((error) => {
-                        // An error occurred
-                        // ...
+                
                         seterrorMessage(error);
                     });
 
@@ -61,22 +59,15 @@ const Login = () => {
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    // ..
 
                     seterrorMessage(errorCode, errorMessage);
                 });
-            // console.log("1")
+ 
         }
         else {
-            // console.log("2")	
+          
             signInWithEmailAndPassword(auth, email.current.value, password.current.value)
-                .then((userCredential) => {
-                    // Signed in 
-                    const user = userCredential.user;
-                    console.log(user);
-                    navigate("/browse")
-                    // ...
-                })
+                .then(() => {})
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
