@@ -1,0 +1,1 @@
+export const AVTAR_URL = "https://avatars.githubusercontent.com/u/94777700?s=96&v=4";
