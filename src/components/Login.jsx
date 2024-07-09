@@ -1,13 +1,18 @@
 import Header from "./Header"
 import bg from "../assets/netflix-bg.jpg"
+import userIcon from "../assets/usericon.jpg"
 import { useRef, useState } from "react"
 import { check_Validata_Email_Password } from "../utils/validate";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword,  signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 import {auth} from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
+
 
 
 const Login = () => {
+
+    const navigate = useNavigate();
 
     const [isSignedIn, setSignIN] = useState(true);
     const [errorMessage, seterrorMessage] = useState(null);
@@ -30,7 +35,20 @@ const Login = () => {
                 .then((userCredential) => {
                     // Signed up 
                     const user = userCredential.user;
-                    console.log(user);
+                    
+                    updateProfile(user, {
+                        displayName: fullName.current.value,
+                        photoURL: "https://avatars.githubusercontent.com/u/94777700?s=96&v=4",
+                    }).then(() => {
+                        // Profile updated!
+                       
+                        // console.log(user);
+                        navigate("/browse")
+                    }).catch((error) => {
+                        // An error occurred
+                        // ...
+                        seterrorMessage(error);
+                    });
 
                 })
                 .catch((error) => {
@@ -49,6 +67,7 @@ const Login = () => {
                     // Signed in 
                     const user = userCredential.user;
                     console.log(user);
+                    navigate("/")
                     // ...
                 })
                 .catch((error) => {
