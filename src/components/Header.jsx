@@ -25,7 +25,7 @@ const Header = () => {
 
   useEffect(() => {
 
-    onAuthStateChanged(auth, (user) => {
+  const unsubscribe =   onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName, photoURL } = user;
 
@@ -40,7 +40,9 @@ const Header = () => {
         navigate("/")
 
       }
-    })
+  })
+    
+    return () => unsubscribe();
   }, [])
   return (
     <div className="absolute flex justify-between z-10 w-full bg-gradient-to-b from-black">
