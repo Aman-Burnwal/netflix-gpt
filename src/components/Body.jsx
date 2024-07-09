@@ -24,9 +24,9 @@ const Body = () => {
 
         onAuthStateChanged (auth, (user) => {
             if (user) {
-                const { uid, email, dispalayName } = user;
+                const { uid, email, displayName, photoURL } = user;
                 console.log("Auth state sign in");
-                dispatch(addUser({ uid: uid, email: email, dispalayName: dispalayName }))
+                dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }))
             
             }
             else {
