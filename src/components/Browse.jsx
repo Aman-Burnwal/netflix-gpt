@@ -1,9 +1,19 @@
-import Header from "./Header"
+import {MainContainer, Header} from "./index"
 
 const Browse = () => {
   return (
     <div>
       <Header />
+
+      <MainContainer />
+
+    {/* {  
+      maincontainer 
+        - title 
+        - background video 
+
+      secondarycontainer
+    } */}
     </div>
   )
 }
