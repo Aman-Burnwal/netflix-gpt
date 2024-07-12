@@ -1,4 +1,4 @@
-import Header from "./Header"
+import {Header} from "./index"
 import bg from "../assets/netflix-bg.jpg"
 
 import { useRef, useState } from "react"
