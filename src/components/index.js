@@ -7,6 +7,7 @@ import MainContainer from "./MainContainer";
 import SecondryContainer from "./SecondryContainer";
 import Title from "./Title";
 import useMovie from "../hooks/useMovies";
+import MovieCard from "./MovieCard";
 
 
 export {
@@ -16,6 +17,7 @@ export {
     Header, 
     Login,
     MainContainer,
+    MovieCard,
     SecondryContainer,
     Title,
     useMovie,

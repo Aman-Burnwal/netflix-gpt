@@ -7,9 +7,13 @@ const moviesSlice = createSlice({
         
         upcommingShows: null,
         popularShows: null,
+        movieGenere : null,
 
     },
     reducers: {
+        addMovieGener: (state, action) => {
+            state.movieGenere = action.payload
+        },
         addUommingShows: (state, action) => {
             state.upcommingShows = action.payload;
         },
@@ -19,5 +23,5 @@ const moviesSlice = createSlice({
 
     }
 })
-export const { addPopularShows, addUommingShows } = moviesSlice.actions;
+export const { addPopularShows, addUommingShows, addMovieGener } = moviesSlice.actions;
 export default moviesSlice.reducer;
