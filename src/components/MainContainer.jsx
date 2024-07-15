@@ -1,9 +1,9 @@
-// import useMovies from "../hooks/useMovies"
+import useMovies from "../hooks/useMovies"
 import { BackgroundVideo, Title } from "./index"
 
 const MainContainer = () => {
 
-  // useMovies();
+  useMovies();
  
   return (
     <div className="">
